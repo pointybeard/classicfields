@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * A simple Date field that stores a full ISO date. Symphony will attempt
  * to localize the date on a per Author basis. The field essentially maps to

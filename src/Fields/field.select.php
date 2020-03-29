@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * A simple Select field that essentially maps to HTML's `<select/>`. The
  * options for this field can be static, or feed from another field.

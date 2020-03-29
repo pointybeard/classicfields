@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * The Tag List field is really a different interface for the Select Box
  * field, offering a tag interface that can have static suggestions,

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * A simple Input field that essentially maps to HTML's `<input type='text'/>`.
  */

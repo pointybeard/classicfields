@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Checkbox field simulates a HTML checkbox field, in that it represents a
  * simple yes/no field.

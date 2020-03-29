@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * A simple Upload field that essentially maps to HTML's `<input type='file '/>`.
  */

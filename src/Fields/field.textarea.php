@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * A simple Textarea field that essentially maps to HTML's `<textarea/>`.
  */
