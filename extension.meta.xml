@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="classicfields" status="released" xmlns="http://getsymphony.com/schemas/extension/1.0">
+    <name>Classic Fields</name>
+    <description>Collection of the original SymphonyCMS fields with the ability to enable, disable, install, and uninstall specific fields as required. Includes the original Date, Input, Textarea, Select, Taglist, Author, Checkbox, and Upload fields that came with an original Symphony CMS install.</description>
+    <repo type="github">https://github.com/pointybeard/classicfields</repo>
+    <types>
+        <type>System</type>
+    </types>
+    <authors>
+        <author>
+            <name github="pointybeard">Alannah Kearney</name>
+            <website>http://alannahkearney.com</website>
+        </author>
+        <author>
+            <name github="symphonycms" symphony="team">Symphony Team</name>
+            <website>https://getsymphony.com</website>
+        </author>
+    </authors>
+    <releases>
+        <release version="1.0.0" date="2020-03-29" min="2.7.10">
+            - Initial release
+        </release>
+    </releases>
+</extension>

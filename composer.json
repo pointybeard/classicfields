@@ -1,0 +1,35 @@
+{
+    "name": "pointybeard/symphony-field-collection",
+    "description": "Collection of the original SymphonyCMS fields with the ability to enable, disable, install, and uninstall specific fields as required. Includes the original Date, Input, Textarea, Select, Taglist, Author, Checkbox, and Upload fields that came with an original Symphony CMS install.",
+    "homepage": "https://www.getsymphony.com",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Alannah Kearney",
+            "email": "hi@alannahkearney.com"
+        },
+        {
+            "name": "Symphony Team",
+            "email": "team@getsymphony.com"
+        }
+    ],
+    "support": {
+      "issues": "https://github.com/pointybeard/classicfields/issues",
+      "wiki": "https://github.com/pointybeard/classicfields/wiki"
+    },
+    "require": {
+        "php": ">=7.3",
+        "pointybeard/helpers": "^1.2.0",
+        "pointybeard/symphony-pdo": "~0.1.7.0",
+        "pointybeard/symphony-extended": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "pointybeard\\Symphony\\Extensions\\": "src"
+        },
+        "files": [
+            "extension.driver.php"
+        ]
+    }
+}

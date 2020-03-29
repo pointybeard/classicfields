@@ -1,0 +1,34 @@
+{
+    "id": "classicfields",
+    "name": "Classic Fields",
+    "description": "Collection of the original SymphonyCMS fields with the ability to enable, disable, install, and uninstall specific fields as required. Includes the original Date, Input, Textarea, Select, Taglist, Author, Checkbox, and Upload fields that came with an original Symphony CMS install.",
+    "repo": "https://github.com/pointybeard/classicfields.git",
+    "homepage": "https://github.com/pointybeard/classicfields",
+    "type": [
+        "System"
+    ],
+    "authors": [
+        {
+            "name": "Alannah Kearney",
+            "email": "hi@alannahkearney.com",
+            "homepage": "http://alannahkearney.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Symphony Team",
+            "homepage": "https://getsymphony.com",
+            "role": "Developer"
+        }
+    ],
+    "require": [
+        "console"
+    ],
+    "releases": [
+        {
+            "version": "1.0.0",
+            "date": "2020-03-29",
+            "min": "2.7.10",
+            "max": "2.x.x"
+        }
+    ]
+}
