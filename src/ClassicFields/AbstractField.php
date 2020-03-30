@@ -39,16 +39,21 @@ abstract class AbstractField implements Interfaces\FieldInterface
         ;
     }
 
+    private function checkDatabaseTableExists(): bool
+    {
+        return false !== SymphonyPDO\Loader::instance()->query(sprintf(
+            "SHOW TABLES LIKE 'tbl_fields_%s';",
+            strtolower($this->name())
+        ))->fetch();
+    }
+
     public function install(int $flags = null): void
     {
-        if (self::STATUS_ENABLED == $this->status() && false == Flags\is_flag_set($flags, self::FLAG_FORCE)) {
-            return;
+        if(false == $this->checkDatabaseTableExists()) {
+            SymphonyPDO\Loader::instance()->query(
+                static::getCreateFieldSQL()
+            );
         }
-
-        SymphonyPDO\Loader::instance()->query(
-            static::getCreateFieldSQL()
-        );
-
         static::enable();
     }
 
