@@ -6,6 +6,7 @@
  * PHP's `strtotime`, so it is very flexible in terms of what an Author can
  * input into it.
  */
+if(false == class_exists(__NAMESPACE__.'/FieldDate')) {
 class FieldDate extends Field implements ExportableField, ImportableField
 {
     const SIMPLE = 0;
@@ -816,4 +817,5 @@ class FieldDate extends Field implements ExportableField, ImportableField
 
         return $groups;
     }
+}
 }

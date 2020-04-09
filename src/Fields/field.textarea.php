@@ -3,6 +3,7 @@
 /**
  * A simple Textarea field that essentially maps to HTML's `<textarea/>`.
  */
+if(false == class_exists(__NAMESPACE__.'/fieldTextarea')) {
 class fieldTextarea extends Field implements ExportableField, ImportableField
 {
     public function __construct()
@@ -398,4 +399,5 @@ class fieldTextarea extends Field implements ExportableField, ImportableField
 
         return $label;
     }
+}
 }

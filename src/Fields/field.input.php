@@ -3,6 +3,7 @@
 /**
  * A simple Input field that essentially maps to HTML's `<input type='text'/>`.
  */
+if(false == class_exists(__NAMESPACE__.'/FieldInput')) {
 class FieldInput extends Field implements ExportableField, ImportableField
 {
     public function __construct()
@@ -398,4 +399,5 @@ class FieldInput extends Field implements ExportableField, ImportableField
 
         return $groups;
     }
+}
 }

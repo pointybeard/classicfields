@@ -4,6 +4,12 @@
  * A simple Select field that essentially maps to HTML's `<select/>`. The
  * options for this field can be static, or feed from another field.
  */
+
+if(false == class_exists(__NAMESPACE__.'/FieldSelect')) {
+    include __DIR__ . '/field.taglist.php';
+}
+
+if(false == class_exists(__NAMESPACE__.'/FieldSelect')) {
 class FieldSelect extends FieldTagList implements ExportableField, ImportableField
 {
     public function __construct()
@@ -566,4 +572,5 @@ class FieldSelect extends FieldTagList implements ExportableField, ImportableFie
 
         return $label;
     }
+}
 }

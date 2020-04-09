@@ -4,6 +4,7 @@
  * Checkbox field simulates a HTML checkbox field, in that it represents a
  * simple yes/no field.
  */
+if(false == class_exists(__NAMESPACE__.'/FieldCheckbox')) {
 class FieldCheckbox extends Field implements ExportableField, ImportableField
 {
     public function __construct()
@@ -472,4 +473,5 @@ class FieldCheckbox extends Field implements ExportableField, ImportableField
 
         return $label;
     }
+}
 }

@@ -3,6 +3,7 @@
 /**
  * A simple Upload field that essentially maps to HTML's `<input type='file '/>`.
  */
+if(false == class_exists(__NAMESPACE__.'/FieldUpload')) {
 class FieldUpload extends Field implements ExportableField, ImportableField
 {
     protected static $imageMimeTypes = array(
@@ -825,4 +826,5 @@ class FieldUpload extends Field implements ExportableField, ImportableField
 
         return $label;
     }
+}
 }
