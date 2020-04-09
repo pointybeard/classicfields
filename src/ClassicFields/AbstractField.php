@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace pointybeard\Symphony\Extensions\ClassicFields;
 
 use pointybeard\Helpers\Functions\Flags;
+use pointybeard\Helpers\Functions\Files;
 use SymphonyPDO;
 
 abstract class AbstractField implements Interfaces\FieldInterface
@@ -89,14 +90,14 @@ abstract class AbstractField implements Interfaces\FieldInterface
 
     public function enable(int $flags = null): void
     {
-        if (self::STATUS_ENABLED == $this->status() && false == Flags\is_flag_set($flags, self::FLAG_FORCE)) {
+        if (self::STATUS_ENABLED == $this->status() && false == Flags\is_flag_set($flags, Files\FLAG_FORCE)) {
             return;
         }
 
         try {
             $cwd = getcwd();
             chdir($this->extensionDirectory.'/fields');
-            self::createSymbolicLink(
+            Files\create_symbolic_link(
                 "../src/Fields/field.{$this->name()}.php",
                 "field.{$this->name()}.php",
                 $flags
@@ -112,7 +113,7 @@ abstract class AbstractField implements Interfaces\FieldInterface
             try {
                 $cwd = getcwd();
                 chdir(TOOLKIT.'/fields');
-                self::createSymbolicLink(
+                Files\create_symbolic_link(
                     "../../../../extensions/classicfields/src/Fields/field.{$this->name()}.php",
                     "field.{$this->name()}.php",
                     $flags
@@ -148,36 +149,5 @@ abstract class AbstractField implements Interfaces\FieldInterface
     public function path(): string
     {
         return $this->extensionDirectory."/fields/field.{$this->name()}.php";
-    }
-
-    protected static function createSymbolicLink(string $target, ?string $destination, int $flags = null): bool
-    {
-        if (false == Flags\is_flag_set($flags, self::FLAG_FORCE) && null !== $destination && true == file_exists($destination)) {
-            throw new Exceptions\SymlinkExistsException($destination);
-        }
-
-        if (false == realpath($target)) {
-            throw new Exceptions\SymlinkTargetMissingException($target);
-        }
-
-        $command = sprintf(
-            'ln -vs%s %s %s %s',
-            true == Flags\is_flag_set($flags, self::FLAG_FORCE)
-                ? 'f'
-                : null,
-            $target,
-            $destination,
-            null !== $destination
-                ? '-T'
-                : null
-        );
-
-        exec($command, $output, $return);
-
-        if (true != file_exists($destination)) {
-            throw new Exceptions\SymlinkCreationFailedException($destination, 'Target symlink could not be created not exist. Check permissions on target directory.');
-        }
-
-        return true;
     }
 }
