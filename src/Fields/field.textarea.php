@@ -3,8 +3,11 @@
 /**
  * A simple Textarea field that essentially maps to HTML's `<textarea/>`.
  */
-if(false == class_exists(__NAMESPACE__.'/fieldTextarea')) {
-class fieldTextarea extends Field implements ExportableField, ImportableField
+
+use pointybeard\Helpers\Functions\Strings;
+
+if(false == class_exists(__NAMESPACE__.'/FieldTextarea')) {
+class FieldTextarea extends Field implements ExportableField, ImportableField
 {
     public function __construct()
     {
@@ -66,7 +69,7 @@ class fieldTextarea extends Field implements ExportableField, ImportableField
         if (true === $validate) {
             if (!General::validateXML($result, $errors, false, new XsltProcess())) {
                 $result = html_entity_decode($result, ENT_QUOTES, 'UTF-8');
-                $result = $this->__replaceAmpersands($result);
+                $result = Strings\encode_ampersands($result);
 
                 if (!General::validateXML($result, $errors, false, new XsltProcess())) {
                     return false;
@@ -75,11 +78,6 @@ class fieldTextarea extends Field implements ExportableField, ImportableField
         }
 
         return $result;
-    }
-
-    private function __replaceAmpersands($value)
-    {
-        return preg_replace('/&(?!(#[0-9]+|#x[0-9a-f]+|amp|lt|gt);)/i', '&amp;', trim($value));
     }
 
     /*-------------------------------------------------------------------------
@@ -250,7 +248,7 @@ class fieldTextarea extends Field implements ExportableField, ImportableField
             if ($this->get('formatter') && isset($data['value_formatted'])) {
                 $value = $data['value_formatted'];
             } else {
-                $value = $this->__replaceAmpersands($data['value']);
+                $value = Strings\encode_ampersands($data['value']);
             }
 
             $wrapper->appendChild(

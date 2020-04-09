@@ -3,6 +3,9 @@
 /**
  * A simple Input field that essentially maps to HTML's `<input type='text'/>`.
  */
+
+use pointybeard\Helpers\Functions\Strings;
+
 if(false == class_exists(__NAMESPACE__.'/FieldInput')) {
 class FieldInput extends Field implements ExportableField, ImportableField
 {
@@ -73,11 +76,6 @@ class FieldInput extends Field implements ExportableField, ImportableField
         $rule = $this->get('validator');
 
         return $rule ? General::validateString($data, $rule) : true;
-    }
-
-    private function __replaceAmpersands($value)
-    {
-        return preg_replace('/&(?!(#[0-9]+|#x[0-9a-f]+|amp|lt|gt);)/i', '&amp;', trim($value));
     }
 
     /*-------------------------------------------------------------------------
@@ -198,7 +196,7 @@ class FieldInput extends Field implements ExportableField, ImportableField
         } else {
             if (!General::validateXML($data['value'], $errors, false, new XsltProcess())) {
                 $value = html_entity_decode($data['value'], ENT_QUOTES, 'UTF-8');
-                $value = $this->__replaceAmpersands($value);
+                $value = Strings\encode_ampersands($value);
 
                 if (!General::validateXML($value, $errors, false, new XsltProcess())) {
                     $value = General::sanitize($data['value']);
