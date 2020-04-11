@@ -103,7 +103,9 @@ abstract class AbstractField implements Interfaces\FieldInterface
                 $flags
             );
             chdir($cwd);
-        } catch (Exceptions\SymlinkExistsException | Exceptions\SymlinkExistsException $ex) {
+        } catch (Files\Exceptions\Symlink\DestinationExistsException $ex) {
+            // Not too worried if it already exists
+        } catch(\Exception $ex) {
             throw new Exceptions\EnablingFieldFailedException($this->name(), $ex->getMessage());
         }
 
@@ -119,7 +121,9 @@ abstract class AbstractField implements Interfaces\FieldInterface
                     $flags
                 );
                 chdir($cwd);
-            } catch (Exceptions\SymlinkExistsException | Exceptions\SymlinkExistsException $ex) {
+            } catch (Files\Exceptions\Symlink\DestinationExistsException $ex) {
+                // Not too worried if it already exists
+            } catch(\Exception $ex) {
                 throw new Exceptions\EnablingFieldFailedException($this->name(), $ex->getMessage());
             }
         }
