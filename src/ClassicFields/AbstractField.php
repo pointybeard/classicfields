@@ -68,11 +68,11 @@ abstract class AbstractField implements Interfaces\FieldInterface
         static::disable();
 
         if (true == Flags\is_flag_set($flags, self::FLAG_DROP_TABLES)) {
-            $query = SymphonyPDO\Loader::instance()->query(static::getFropFieldSQL());
+            $query = SymphonyPDO\Loader::instance()->query(static::getDropFieldSQL());
         }
     }
 
-    public function getFropFieldSQL(): string
+    public function getDropFieldSQL(): string
     {
         return "DROP TABLE IF EXISTS `tbl_fields_{$this->name()}`";
     }

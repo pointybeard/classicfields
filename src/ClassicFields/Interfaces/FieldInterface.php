@@ -8,5 +8,5 @@ interface FieldInterface
 {
     public function getCreateFieldSQL(): string;
 
-    public function getFropFieldSQL(): string;
+    public function getDropFieldSQL(): string;
 }
