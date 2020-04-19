@@ -6,7 +6,7 @@
  * suggestions from another field or a dynamic list based on what an Author
  * has previously used for this field.
  */
-if(false == class_exists(__NAMESPACE__.'/FieldTagList')) {
+if(false == class_exists('FieldTagList')) {
 class FieldTagList extends Field implements ExportableField, ImportableField
 {
     public function __construct()

@@ -8,7 +8,7 @@
  * The Author field allows filtering by Author ID or Username.
  * Sorting is done based on the Author's first name and last name.
  */
-if(false == class_exists(__NAMESPACE__.'/FieldAuthor')) {
+if(false == class_exists('FieldAuthor')) {
 class FieldAuthor extends Field implements ExportableField
 {
     public function __construct()

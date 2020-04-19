@@ -6,7 +6,7 @@
 
 use pointybeard\Helpers\Functions\Strings;
 
-if(false == class_exists(__NAMESPACE__.'/FieldTextarea')) {
+if(false == class_exists('FieldTextarea')) {
 class FieldTextarea extends Field implements ExportableField, ImportableField
 {
     public function __construct()
