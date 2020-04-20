@@ -47,7 +47,7 @@ class FieldIterator extends \RegexIterator
     {
         $name = parent::current()[1];
 
-        return FieldFactory::build($name, realpath(__DIR__.'/../../'));
+        return FieldFactory::build(ucfirst($name));
     }
 
     /**
